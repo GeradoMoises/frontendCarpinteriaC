@@ -1,0 +1,285 @@
+<app-navbar></app-navbar>
+
+<!-- HERO DETALLE -->
+<header class="hero-detalle">
+  <div class="container" data-aos="fade-down">
+
+    <div class="hero-pill mb-3">
+      <i class="fa-solid fa-chair"></i>
+      <!-- si quieres: categoría o línea de diseño dinámico -->
+      <span>{{ producto?.lineaDiseno?.nombre || 'Línea comedor' }}</span>
+    </div>
+
+    <!-- ✅ DINÁMICO: NOMBRE -->
+    <h1 class="hero-title mb-1">
+      {{ producto?.nombre }}
+    </h1>
+
+    <!-- ✅ DINÁMICO: DESCRIPCIÓN CORTA -->
+    <p class="hero-subtitle mb-2">
+      {{ producto?.descripcionCorta }}
+    </p>
+
+    <div class="d-flex flex-wrap gap-3 align-items-center mt-2">
+      <span class="badge bg-success bg-opacity-75">Hecho a pedido</span>
+    </div>
+  </div>
+
+  <div class="scroll-indicator d-none d-md-flex">
+    <span>Desplázate</span>
+    <div class="scroll-indicator-dot"></div>
+  </div>
+</header>
+
+<!-- DETALLE PRINCIPAL -->
+<section>
+  <div class="container">
+
+    <!-- CARGANDO -->
+    <div *ngIf="cargando" class="text-center py-5">
+      <span class="text-muted">Cargando detalle...</span>
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="!cargando && error" class="alert alert-danger text-center">
+      {{ error }}
+    </div>
+
+    <!-- CONTENIDO -->
+    <div *ngIf="!cargando && !error" class="row g-4 align-items-start">
+
+      <!-- Galería -->
+      <div class="col-lg-6" data-aos="fade-right">
+
+        <div class="gallery-main mb-2">
+          <!-- ✅ DINÁMICO: IMAGEN PRINCIPAL -->
+          <img
+            id="mainImage"
+            [src]="imagenPrincipal || 'assets/img/no-image.png'"
+            [alt]="producto?.nombre || 'Producto'"
+          >
+        </div>
+
+        <div class="thumbs">
+          <!-- ✅ DINÁMICO: THUMBS (imagen1/2/3) -->
+          <img
+            *ngFor="let img of imagenes()"
+            [src]="img"
+            alt="Vista"
+            (click)="cambiarImagen(img)"
+            [class.active]="img === imagenPrincipal"
+          >
+        </div>
+      </div>
+
+      <!-- Info del producto -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="product-info-card">
+
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <!-- ✅ DINÁMICO: NOMBRE (otra vez) -->
+            <h4 class="mb-0">
+              {{ producto?.nombre }}
+            </h4>
+
+            <!-- ✅ DINÁMICO: PRECIO / A COTIZAR -->
+            <span class="price-highlight">
+              {{ precioTexto() }}
+            </span>
+          </div>
+
+          <!-- (Tags pueden ser estáticos, o si quieres luego los hacemos dinámicos) -->
+          <div class="mb-2">
+            <span class="badge-tag">
+              <i class="fa-solid fa-tree"></i> Madera maciza
+            </span>
+            <span class="badge-tag">
+              <i class="fa-solid fa-brush"></i> Acabado protector
+            </span>
+          </div>
+
+          <!-- ✅ DINÁMICO: DESCRIPCIÓN LARGA -->
+          <p class="small text-muted">
+            {{ producto?.descripcionLarga }}
+          </p>
+
+          <hr>
+
+          <div class="row">
+
+            <!-- Medidas -->
+            <div class="col-sm-6">
+              <h6>Medidas</h6>
+              <ul class="data-list">
+
+                <!-- ✅ DINÁMICO: LARGO -->
+                <li *ngIf="producto?.largo != null">
+                  <i class="fa-solid fa-arrows-left-right"></i>
+                  Largo: {{ producto?.largo }} cm
+                </li>
+
+                <!-- ✅ DINÁMICO: ANCHO -->
+                <li *ngIf="producto?.ancho != null">
+                  <i class="fa-solid fa-arrows-left-right"></i>
+                  Ancho: {{ producto?.ancho }} cm
+                </li>
+
+                <!-- ✅ DINÁMICO: ALTURA -->
+                <li *ngIf="producto?.altura != null">
+                  <i class="fa-solid fa-arrows-up-down"></i>
+                  Altura: {{ producto?.altura }} cm
+                </li>
+
+              </ul>
+            </div>
+
+            <!-- Características -->
+            <div class="col-sm-6 mt-3 mt-sm-0">
+              <h6>Características</h6>
+              <ul class="data-list">
+
+                <!-- ✅ DINÁMICO: PESO -->
+                <li *ngIf="producto?.peso != null">
+                  <i class="fa-solid fa-weight-hanging"></i>
+                  Peso aprox.: {{ producto?.peso }} kg
+                </li>
+
+                <!-- ✅ DINÁMICO: MATERIAL -->
+                <li *ngIf="producto?.material">
+                  <i class="fa-solid fa-square"></i>
+                  Material: {{ producto?.material }}
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="mt-3 d-flex flex-wrap gap-2">
+            <a class="btn btn-main d-inline-flex align-items-center gap-2" href="#">
+              <i class="fa-solid fa-envelope-open-text"></i>
+              Solicitar cotización personalizada
+            </a>
+
+            <a routerLink="/productos" class="btn btn-outline-dark rounded-pill d-inline-flex align-items-center gap-2">
+              <i class="fa-solid fa-arrow-left"></i>
+              Volver al catálogo
+            </a>
+          </div>
+
+          <p class="small text-muted mt-2 mb-0">
+            También podemos ajustar las medidas, tonos de acabado y tipo de madera según tu proyecto.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MÁS DETALLES (ESTÁTICO, lo dejo tal cual tu diseño) -->
+<section class="bg-white">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="detail-box">
+          <h5 class="mb-2">
+            <i class="fa-solid fa-ruler-combined me-2 text-warning"></i>
+            Personalización disponible
+          </h5>
+          <p class="small text-muted">
+            Sabemos que cada espacio es distinto, por eso podemos ajustar el diseño a tus necesidades.
+          </p>
+          <ul class="check-list mb-0">
+            <li><i class="fa-solid fa-check-circle"></i> Cambio de medidas (largo, ancho, altura).</li>
+            <li><i class="fa-solid fa-check-circle"></i> Elección de tono del acabado (claro, medio, oscuro).</li>
+            <li><i class="fa-solid fa-check-circle"></i> Opción de bordes rectos o redondeados.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Combinación con metal u otros materiales.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="detail-box">
+          <h5 class="mb-2">
+            <i class="fa-solid fa-circle-info me-2 text-warning"></i>
+            Cuidados y mantenimiento
+          </h5>
+          <p class="small text-muted">
+            Para que tu mesa se mantenga en perfecto estado durante muchos años:
+          </p>
+          <ul class="check-list mb-0">
+            <li><i class="fa-solid fa-check-circle"></i> Limpiar con paño ligeramente húmedo y secar al momento.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Evitar exposición prolongada al sol directo y humedad.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Utilizar posavasos y manteles para objetos calientes.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Reaplicar cera o protector cada cierto tiempo si es necesario.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS RELACIONADOS (ESTÁTICO) -->
+<section>
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-2" data-aos="fade-up">
+      <div>
+        <h4 class="mb-1">También te puede interesar</h4>
+        <p class="small text-muted mb-0">Otras piezas que combinan con esta mesa.</p>
+      </div>
+
+      <a routerLink="/productos" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center gap-2">
+        Ver todo el catálogo
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="zoom-in">
+        <div class="product-card">
+          <img class="product-img"
+               src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80"
+               alt="Juego de sillas">
+          <div class="p-3">
+            <h5>Juego de 4 Sillas Rústicas</h5>
+            <p class="small text-muted">Diseño a juego con la mesa de comedor.</p>
+            <p class="price-tag">S/ 780.00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="80">
+        <div class="product-card">
+          <img class="product-img"
+               src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80"
+               alt="Repisa">
+          <div class="p-3">
+            <h5>Repisas de pared en madera</h5>
+            <p class="small text-muted">Perfectas para complementar tu comedor.</p>
+            <p class="price-tag">S/ 190.00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="160">
+        <div class="product-card">
+          <img class="product-img"
+               src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=900&q=80"
+               alt="Aparador">
+          <div class="p-3">
+            <h5>Aparador auxiliar rústico</h5>
+            <p class="small text-muted">Almacenamiento extra para tu vajilla.</p>
+            <p class="price-tag">A cotizar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<app-footer></app-footer>

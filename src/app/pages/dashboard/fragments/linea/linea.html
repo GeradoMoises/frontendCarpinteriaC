@@ -1,0 +1,142 @@
+<div id="view-lineas" class="view-container">
+
+  <!-- ERROR (no cambia diseño si no hay error) -->
+  <div *ngIf="error" class="alert alert-danger py-2">{{ error }}</div>
+
+  <!-- FORM -->
+  <div class="form-view" data-aos="fade-up">
+    <div class="form-header">
+      <h3>Agregar Nueva Linea</h3>
+      <small>Completa la información de la Linea de Diseño</small>
+    </div>
+
+    <form id="form-linea" (ngSubmit)="guardar()">
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label>Nombre</label>
+          <input name="nombre" class="form-control" required
+                 [(ngModel)]="nombre">
+        </div>
+
+        <div class="col-md-6">
+          <label>Estado</label>
+          <select name="activo" class="form-select"
+                  [(ngModel)]="activo">
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label>Descripción</label>
+          <textarea name="descripcion" class="form-control"
+                    [(ngModel)]="descripcion"></textarea>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-warning" type="submit">
+            <i class="fa-solid fa-save me-2"></i> Guardar Línea
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <!-- TABLA -->
+  <div class="table-view">
+
+    <div class="table-header">
+      <h4>Líneas Registradas</h4>
+
+      <div class="table-actions">
+        <div class="input-group input-group-sm">
+          <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+        <input id="inputBuscarLinea"
+               class="form-control form-control-sm"
+               placeholder="Buscar línea..."
+               [(ngModel)]="texto"
+               (keyup.enter)="buscar()">
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+        <th></th>
+      </tr>
+      </thead>
+
+      <!-- ✅ Aquí va el ngFor, antes era tbody vacío con id -->
+      <tbody id="tbody-lineas">
+      <tr *ngFor="let l of lineas">
+        <td>{{ l.id }}</td>
+        <td>{{ l.nombre }}</td>
+        <td>{{ l.descripcion }}</td>
+        <td>{{ l.activo ? 'Activo' : 'Inactivo' }}</td>
+        <td class="text-end">
+          <button class="btn btn-sm btn-outline-primary me-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalEditarLinea"
+                  (click)="abrirEditar(l)">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+
+          <button class="btn btn-sm btn-outline-danger"
+                  (click)="eliminar(l.id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal fade" id="modalEditarLinea">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5>Editar Línea</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="hidden" id="edit-id" [value]="editId">
+
+          <label>Nombre</label>
+          <input class="form-control" id="edit-nombre"
+                 [(ngModel)]="editNombre" name="editNombre">
+
+          <label>Descripción</label>
+          <textarea class="form-control" id="edit-descripcion"
+                    [(ngModel)]="editDescripcion" name="editDescripcion"></textarea>
+
+          <label>Activo</label>
+          <select id="edit-activo" class="form-select"
+                  [(ngModel)]="editActivo" name="editActivo">
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+          </select>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary"
+                  (click)="actualizar()"
+                  data-bs-dismiss="modal">
+            Actualizar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

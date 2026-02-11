@@ -1,0 +1,257 @@
+:host{
+  /* neutrales */
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --soft: #f9fafb;
+  --card: #ffffff;
+
+  /* sombras */
+  --shadow: 0 6px 18px rgba(15,23,42,.06);
+  --shadow-2: 0 18px 45px rgba(0,0,0,.18);
+
+  display:block;
+  background: var(--bg);
+}
+
+/* -------- Contenedor Formulario -------- */
+.form-view{
+  background: var(--card);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.form-header{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.form-header h3{
+  margin: 0;
+  color: var(--primary-dark);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.form-header small{
+  color: var(--muted);
+}
+
+/* inputs (en tu HTML no usas .form-label, usas <label>) */
+.form-view label{
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 6px;
+  font-size: .9rem;
+  display: inline-block;
+}
+
+.form-view .form-control,
+.form-view .form-select{
+  border-radius: 10px;
+  border: 1px solid #d6d9e0;
+  background: var(--soft);
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.form-view .form-control:focus,
+.form-view .form-select:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(139,90,43,.16);
+  background: #fff;
+}
+
+/* botón principal */
+.btn.btn-warning{
+  border: 0;
+  background: var(--accent);
+  color: #000000;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: .55rem 1.1rem;
+  box-shadow: 0 6px 16px rgba(139,90,43,.28);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.btn.btn-warning:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 10px 22px rgba(139,90,43,.34);
+}
+.btn.btn-warning:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(139,90,43,.28);
+}
+
+/* -------- Tabla contenedor -------- */
+.table-view{
+  background: var(--card);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* header tabla */
+.table-header{
+  background: linear-gradient(0deg, rgba(255,200,87,.12), rgba(255,200,87,.12)), #fff;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.table-header h4{
+  margin: 0;
+  font-weight: 900;
+  color: var(--primary-dark);
+  letter-spacing: .04em;
+  font-size: .95rem;
+}
+
+.table-actions{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+/* input búsqueda (aquí sí usas input-group como el ejemplo) */
+.table-actions .input-group-text{
+  background: #fff;
+  border: 1px solid #d6d9e0;
+  border-right: 0;
+  border-radius: 999px 0 0 999px;
+  color: var(--primary);
+}
+.table-actions .form-control{
+  border: 1px solid #d6d9e0;
+  border-left: 0;
+  border-radius: 0 999px 999px 0;
+  background: #fff;
+}
+.table-actions .form-control:focus{
+  box-shadow: 0 0 0 3px rgba(139,90,43,.14);
+  border-color: var(--primary);
+}
+
+/* select filtro (por si luego agregas) */
+.table-actions .form-select{
+  border-radius: 999px;
+  border: 1px solid #d6d9e0;
+  background: #fff;
+}
+.table-actions .form-select:focus{
+  box-shadow: 0 0 0 3px rgba(139,90,43,.14);
+  border-color: var(--primary);
+}
+
+/* tabla interna (en líneas es .table, no .table-empleados) */
+.table thead th{
+  background: #fcfcfd;
+  color: #374151;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 14px;
+}
+
+.table tbody td{
+  padding: 12px 14px;
+  border-top: 1px solid #f0f2f5;
+  color: var(--ink);
+  vertical-align: middle;
+}
+
+/* hover */
+.table tbody tr{
+  transition: background .15s ease;
+}
+.table tbody tr:hover{
+  background: rgba(139,90,43,.045);
+}
+
+/* Estado (columna 4) marcado */
+.table tbody td:nth-child(4){
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+/* botones acciones (igual al ejemplo) */
+.table .btn{
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.table .btn-outline-primary{
+  border-color: rgba(139,90,43,.35);
+  color: var(--primary-dark);
+  background: #fff;
+}
+.table .btn-outline-primary:hover{
+  background: rgba(139,90,43,.10);
+}
+
+.table .btn-outline-danger{
+  border-color: rgba(239,68,68,.35);
+  color: #ef4444;
+  background: #fff;
+}
+.table .btn-outline-danger:hover{
+  background: rgba(239,68,68,.08);
+}
+
+/* -------- Modal -------- */
+.modal-content{
+  border: 0;
+  border-radius: 16px;
+  box-shadow: var(--shadow-2);
+}
+
+.modal-header{
+  border-bottom: 1px solid var(--line);
+  padding: 14px 18px;
+}
+
+/* tu modal no usa .modal-title, usa <h5> directo */
+.modal-header h5{
+  margin: 0;
+  font-weight: 900;
+  color: var(--primary-dark);
+}
+
+.modal-body{
+  padding: 18px;
+}
+
+.modal-footer{
+  border-top: 1px solid var(--line);
+  padding: 14px 18px;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px){
+  .form-view{
+    padding: 16px;
+  }
+  .table-header{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .table-actions{
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

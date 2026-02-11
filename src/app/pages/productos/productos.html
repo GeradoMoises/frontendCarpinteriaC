@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+
+<!-- HERO -->
+<header class="hero-banner">
+  <div class="hero-overlay-pattern"></div>
+  <div class="container hero-content" data-aos="fade-up">
+    <div class="hero-badge mb-3">
+      <i class="fa-solid fa-hammer"></i>
+      <span>Muebles de carpintería hechos a medida</span>
+    </div>
+
+    <h1 class="hero-title mb-2">Catálogo de Productos</h1>
+
+    <p class="hero-subtitle mb-3">
+      Explora nuestras mesas, closets, cocinas y piezas decorativas,
+      diseñadas artesanalmente para darle calidez y carácter a cada espacio.
+    </p>
+  </div>
+</header>
+
+<!-- FILTROS -->
+<section class="py-4">
+  <div class="container text-center" data-aos="fade-up">
+    <h3 class="mb-3">Filtrar por categoría</h3>
+
+    <div class="d-flex flex-wrap justify-content-center gap-2">
+      <button
+        *ngFor="let f of filtros"
+        class="btn btn-outline-dark filter-btn"
+        [class.active]="filtroActivo === f.value"
+        (click)="setFiltro(f.value)">
+        {{ f.label }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- GRID -->
+<section class="py-4">
+  <div class="container">
+
+    <div *ngIf="cargando" class="text-center py-5">
+      <span class="text-muted">Cargando productos...</span>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger text-center">
+      {{ error }}
+    </div>
+
+    <div *ngIf="!cargando && productosFiltrados.length === 0"
+         class="text-center py-5 text-muted">
+      No hay productos para esta categoría.
+    </div>
+
+    <div class="row g-4" *ngIf="!cargando && productosFiltrados.length > 0">
+      <div class="col-md-4" *ngFor="let p of productosFiltrados" data-aos="fade-up">
+        <div class="product-card">
+
+          <img class="product-img" [src]="img1(p)" [alt]="p.nombre">
+
+          <div class="p-3">
+            <h5>{{ p.nombre }}</h5>
+            <p class="small text-muted">{{ descCard(p) }}</p>
+
+            <p class="price-tag fw-bold text-success">
+              {{ precioTexto(p) }}
+            </p>
+
+            <button class="btn btn-warning w-100 mt-2" [routerLink]="['/detalle', p.id]">
+
+            <i class="fa-solid fa-eye"></i> Ver detalles
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<app-footer></app-footer>

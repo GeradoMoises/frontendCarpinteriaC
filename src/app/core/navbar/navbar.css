@@ -1,0 +1,99 @@
+/* NAVBAR */
+.navbar-custom {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 0.75rem 0;
+  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+.logo-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* Cuando se hace scroll, que se vea más compacta y sólida */
+.navbar-custom.navbar-scrolled {
+  background: #000000;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-brand span {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.navbar-brand strong {
+  color: var(--accent);
+}
+
+/* Links */
+.navbar-nav .nav-link {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.5rem 0.9rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Botón "Ingresar" */
+.btn-outline-main {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+  border-radius: 999px;
+  padding-inline: 1.4rem;
+}
+
+.btn-outline-main:hover {
+  background-color: var(--accent);
+  color: #000 !important;
+}
+
+/* ---------- BREAKPOINTS RESPONSIVE ---------- */
+
+/* Móviles y tablets pequeñas */
+@media (max-width: 991.98px) {
+  .navbar-custom {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .navbar-nav {
+    margin-top: 0.75rem;
+  }
+
+  .navbar-nav .nav-link {
+    text-align: center;
+    padding: 0.45rem 0;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .btn-outline-main {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 575.98px) {
+  .navbar-brand span {
+    font-size: 0.95rem;
+  }
+
+  .navbar-brand i {
+    font-size: 1.1rem;
+  }
+}
+

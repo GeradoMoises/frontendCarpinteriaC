@@ -1,0 +1,393 @@
+<div id="view-productos" class="view-container">
+
+  <!-- ERROR -->
+  <div *ngIf="error" class="alert alert-danger py-2">{{ error }}</div>
+
+  <div class="form-view" data-aos="fade-up">
+    <div class="form-header">
+      <h3>Agregar Nuevo Producto</h3>
+      <small>Completa la información del nuevo producto</small>
+    </div>
+
+    <!-- ✅ ahora Angular maneja el submit -->
+    <form id="form-producto" (ngSubmit)="guardarProducto()">
+      <div class="row g-4">
+
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Nombre del Producto</label>
+            <input type="text" class="form-control"
+                   id="nombre" name="nombre"
+                   [(ngModel)]="form.nombre"
+                   placeholder="Ej: Mesa de Roble, Sofá Moderno" required>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="mb-3">
+            <label class="form-label">Categoría</label>
+            <select class="form-select"
+                    id="categoria" name="categoria"
+                    [(ngModel)]="form.idCategoria"
+                    required>
+              <option value="">Seleccionar...</option>
+              <option *ngFor="let c of categorias" [value]="c.id">{{ c.nombre }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="mb-3">
+            <label class="form-label">Línea de Diseño</label>
+            <select class="form-select"
+                    id="linea" name="linea"
+                    [(ngModel)]="form.idLinea">
+              <option value="">Seleccionar...</option>
+              <option *ngFor="let l of lineas" [value]="l.id">{{ l.nombre }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="mb-3">
+            <label class="form-label">Precio (S/.)</label>
+            <input type="number" class="form-control"
+                   id="precio" name="precio"
+                   [(ngModel)]="form.precio"
+                   placeholder="0.00" step="0.01">
+            <small class="text-muted">Dejar vacío para "A cotizar"</small>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="mb-3">
+            <label class="form-label">Largo cm</label>
+            <input type="number" class="form-control"
+                   id="largo" name="largo"
+                   [(ngModel)]="form.largo"
+                   placeholder="70 cm">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="mb-3">
+            <label class="form-label">Ancho cm</label>
+            <input type="number" class="form-control"
+                   id="ancho" name="ancho"
+                   [(ngModel)]="form.ancho"
+                   placeholder="80 cm">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="mb-3">
+            <label class="form-label">Alto cm</label>
+            <input type="number" class="form-control"
+                   id="alto" name="alto"
+                   [(ngModel)]="form.alto"
+                   placeholder="80 cm">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="mb-3">
+            <label class="form-label">Peso kg</label>
+            <input type="number" class="form-control"
+                   id="peso" name="peso"
+                   [(ngModel)]="form.peso"
+                   placeholder="20 kg">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select class="form-select"
+                    id="activo" name="activo"
+                    [(ngModel)]="form.activo"
+                    required>
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Material</label>
+            <input type="text" class="form-control"
+                   id="material" name="material"
+                   [(ngModel)]="form.material"
+                   placeholder="Ej: Roble, Pino, MDF">
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label">Descripción Card</label>
+            <textarea class="form-control" rows="3"
+                      id="descripcionCard" name="descripcionCard"
+                      [(ngModel)]="form.descripcionCard"
+                      placeholder="Describe el producto..."></textarea>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label">Descripción Resumida</label>
+            <textarea class="form-control" rows="3"
+                      id="descripcionCorta" name="descripcionCorta"
+                      [(ngModel)]="form.descripcionCorta"
+                      placeholder="Describe el producto..."></textarea>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="mb-3">
+            <label class="form-label">Descripción Detallada</label>
+            <textarea class="form-control" rows="3"
+                      id="descripcionLarga" name="descripcionLarga"
+                      [(ngModel)]="form.descripcionLarga"
+                      placeholder="Describe el producto..."></textarea>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">URL Imagen Principal</label>
+            <input type="text" class="form-control"
+                   id="imagen1" name="imagen1"
+                   [(ngModel)]="form.imagen1"
+                   placeholder="https://images.unsplash.com">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">URL Imagen Secundaria</label>
+            <input type="text" class="form-control"
+                   id="imagen2" name="imagen2"
+                   [(ngModel)]="form.imagen2"
+                   placeholder="https://images.unsplash.com">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">URL Tercera Imagen</label>
+            <input type="text" class="form-control"
+                   id="imagen3" name="imagen3"
+                   [(ngModel)]="form.imagen3"
+                   placeholder="https://images.unsplash.com">
+          </div>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-warning">
+            <i class="fa-solid fa-save me-2"></i> Guardar Producto
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="table-view" data-aos="fade-up" data-aos-delay="100">
+    <div class="table-header">
+      <h4>PRODUCTOS REGISTRADOS</h4>
+
+      <div class="table-actions">
+        <div class="input-group input-group-sm" style="width: 250px;">
+          <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+          <input type="text" class="form-control"
+                 id="inputBuscarProducto"
+                 name="inputBuscarProducto"
+                 [(ngModel)]="textoBuscar"
+                 (keyup.enter)="buscar()"
+                 placeholder="Buscar productos...">
+        </div>
+
+        <select class="form-select form-select-sm"
+                id="filtroCategoria" style="width: 180px;"
+                name="filtroCategoria"
+                [(ngModel)]="filtroCategoria"
+                (change)="buscarPorCategoria()">
+          <option value="">Todas las categorías</option>
+          <option *ngFor="let c of categorias" [value]="c.id">{{ c.nombre }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead>
+        <tr>
+          <th width="60">ID</th>
+          <th>PRODUCTO</th>
+          <th width="140">CATEGORÍA</th>
+          <th width="140">LÍNEA</th>
+          <th width="120">PRECIO</th>
+          <th width="90">ESTADO</th>
+          <th width="160">ACCIONES</th>
+        </tr>
+        </thead>
+
+        <!-- ✅ ahora Angular llena la tabla -->
+        <tbody id="tbody-productos">
+        <tr *ngFor="let p of productos">
+          <td>{{ p.id }}</td>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.categoria?.nombre || '-' }}</td>
+          <td>{{ p.lineaDiseno?.nombre || '-' }}</td>
+          <td>{{ precioTexto(p) }}</td>
+          <td>{{ estadoTexto(p) }}</td>
+          <td>
+            <!-- ✅ EDITAR -->
+            <button
+              class="btn btn-sm btn-outline-primary me-1"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#modalEditarProducto"
+              (click)="abrirEditar(p)"
+            >
+              <i class="fa-solid fa-pen"></i>
+            </button>
+
+            <!-- ✅ ELIMINAR -->
+            <button class="btn btn-sm btn-outline-danger" type="button" (click)="eliminar(p.id)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="!loading && productos.length === 0">
+          <td colspan="7" class="text-center text-muted py-4">
+            No hay productos para mostrar.
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <!-- ===================== MODAL EDITAR PRODUCTO ===================== -->
+  <div class="modal fade" id="modalEditarProducto" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <label class="form-label">Nombre</label>
+              <input class="form-control" [(ngModel)]="edit.nombre" name="editNombre">
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label">Categoría</label>
+              <select class="form-select" [(ngModel)]="edit.idCategoria" name="editCategoria">
+                <option value="">Seleccionar...</option>
+                <option *ngFor="let c of categorias" [value]="c.id">{{ c.nombre }}</option>
+              </select>
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label">Línea de Diseño</label>
+              <select class="form-select" [(ngModel)]="edit.idLinea" name="editLinea">
+                <option value="">(Sin línea)</option>
+                <option *ngFor="let l of lineas" [value]="l.id">{{ l.nombre }}</option>
+              </select>
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label">Precio</label>
+              <input type="number" class="form-control" [(ngModel)]="edit.precio" name="editPrecio" step="0.01">
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label">Etiqueta Precio</label>
+              <input class="form-control" [(ngModel)]="edit.etiquetaPrecio" name="editEtiquetaPrecio">
+            </div>
+
+            <div class="col-md-2">
+              <label class="form-label">Largo</label>
+              <input type="number" class="form-control" [(ngModel)]="edit.largo" name="editLargo">
+            </div>
+
+            <div class="col-md-2">
+              <label class="form-label">Ancho</label>
+              <input type="number" class="form-control" [(ngModel)]="edit.ancho" name="editAncho">
+            </div>
+
+            <div class="col-md-2">
+              <label class="form-label">Alto</label>
+              <input type="number" class="form-control" [(ngModel)]="edit.altura" name="editAltura">
+            </div>
+
+            <div class="col-md-2">
+              <label class="form-label">Peso</label>
+              <input type="number" class="form-control" [(ngModel)]="edit.peso" name="editPeso">
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label">Estado</label>
+              <select class="form-select" [(ngModel)]="edit.activo" name="editActivo">
+                <option [ngValue]="true">Activo</option>
+                <option [ngValue]="false">Inactivo</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Material</label>
+              <input class="form-control" [(ngModel)]="edit.material" name="editMaterial">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Imagen 1</label>
+              <input class="form-control" [(ngModel)]="edit.imagen1" name="editImg1">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Imagen 2</label>
+              <input class="form-control" [(ngModel)]="edit.imagen2" name="editImg2">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Imagen 3</label>
+              <input class="form-control" [(ngModel)]="edit.imagen3" name="editImg3">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Descripción Card</label>
+              <textarea class="form-control" rows="2" [(ngModel)]="edit.descripcionCard" name="editCard"></textarea>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Descripción Corta</label>
+              <textarea class="form-control" rows="2" [(ngModel)]="edit.descripcionCorta" name="editCorta"></textarea>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Descripción Larga</label>
+              <textarea class="form-control" rows="3" [(ngModel)]="edit.descripcionLarga" name="editLarga"></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" (click)="actualizar()" data-bs-dismiss="modal">
+            Actualizar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

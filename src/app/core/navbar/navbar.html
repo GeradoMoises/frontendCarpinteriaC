@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+  <div class="container">
+
+    <!-- LOGO -->
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
+      <img
+        src="assets/img/IsotipoBlanco.png"
+        alt="Logo"
+        class="logo-icon me-2"
+      />
+      <span>Carpintería <strong>Camargo</strong></span>
+    </a>
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navMain"
+      aria-controls="navMain"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- LINKS -->
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Inicio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/nosotros">Nosotros</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/servicios">Servicios</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/productos">Productos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/proceso">Proceso</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacto">Contacto</a>
+        </li>
+
+        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+          <a
+            class="btn btn-sm btn-outline-main w-100 w-lg-auto"
+            routerLink="/login"
+          >
+            <i class="fa-solid fa-user-lock me-1"></i>
+            Ingresar
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>

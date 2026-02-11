@@ -1,0 +1,208 @@
+<div id="view-clientes" class="view-container">
+
+  <!-- ALERTA ERROR (opcional) -->
+  <div class="alert alert-danger py-2 d-none" id="alert-error">
+    Ocurrió un error.
+  </div>
+
+  <!-- FORM -->
+  <div class="form-view" data-aos="fade-up">
+    <div class="form-header">
+      <h3>Registrar Cliente</h3>
+      <small>Completa los datos del cliente</small>
+    </div>
+
+    <form id="form-cliente" method="post">
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label">Nombres</label>
+          <input class="form-control" name="nombre" id="nombre" required
+                 placeholder="Ej: Juan">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Apellidos</label>
+          <input class="form-control" name="apellidos" id="apellidos" required
+                 placeholder="Ej: Pérez Ramírez">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">DNI</label>
+          <input class="form-control" name="dni" id="dni" required maxlength="15"
+                 placeholder="12345678">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Correo</label>
+          <input type="email" class="form-control" name="correo" id="correo" required
+                 placeholder="cliente@correo.com">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Teléfono</label>
+          <input class="form-control" name="telefono" id="telefono"
+                 placeholder="01 1234567">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Celular</label>
+          <input class="form-control" name="celular" id="celular"
+                 placeholder="999888777">
+        </div>
+
+        <div class="col-md-8">
+          <label class="form-label">Dirección</label>
+          <input class="form-control" name="direccion" id="direccion"
+                 placeholder="Av. Ejemplo 123 - Lima">
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-warning" type="submit">
+            <i class="fa-solid fa-save me-2"></i> Guardar Cliente
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <!-- TABLA -->
+  <div class="table-view" data-aos="fade-up" data-aos-delay="100">
+    <div class="table-header">
+      <h4>CLIENTES REGISTRADOS</h4>
+
+      <div class="table-actions">
+        <div class="input-group input-group-sm" style="width: 280px;">
+          <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+          <input class="form-control" id="inputBuscarCliente"
+                 placeholder="Buscar por nombre, DNI o correo...">
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0 table-clientes">
+        <thead>
+        <tr>
+          <th width="60">ID</th>
+          <th>CLIENTE</th>
+          <th width="130">DNI</th>
+          <th width="220">CORREO</th>
+          <th width="120">TELÉFONO</th>
+          <th width="130">CELULAR</th>
+          <th width="210">REGISTRO</th>
+          <th width="130" class="text-end">ACCIONES</th>
+        </tr>
+        </thead>
+
+        <tbody id="tbody-clientes">
+        <!-- Ejemplo de fila -->
+        <tr>
+          <td>1</td>
+
+          <td>
+            <strong>Juan Pérez Ramírez</strong><br>
+            <small class="text-muted">Av. Ejemplo 123 - Lima</small>
+          </td>
+
+          <td>12345678</td>
+          <td>cliente@correo.com</td>
+          <td>01 1234567</td>
+          <td>999888777</td>
+          <td>2025-12-20</td>
+
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-primary me-1"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalEditarCliente">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+
+            <button class="btn btn-sm btn-outline-danger" type="button">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+
+        <!-- Estado vacío -->
+        <tr class="d-none" id="row-sin-clientes">
+          <td colspan="8" class="text-center text-muted py-4">
+            No hay clientes para mostrar.
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <!-- MODAL EDITAR -->
+  <div class="modal fade" id="modalEditarCliente" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <form id="form-editar-cliente" method="post">
+          <div class="modal-body">
+
+            <input type="hidden" id="edit-idCliente" name="idCliente" value="1">
+
+            <div class="row g-3">
+
+              <div class="col-md-6">
+                <label class="form-label">Nombres</label>
+                <input class="form-control" id="edit-nombre" name="nombre">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Apellidos</label>
+                <input class="form-control" id="edit-apellidos" name="apellidos">
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">DNI</label>
+                <input class="form-control" id="edit-dni" name="dni">
+              </div>
+
+              <div class="col-md-8">
+                <label class="form-label">Correo</label>
+                <input type="email" class="form-control" id="edit-correo" name="correo">
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Teléfono</label>
+                <input class="form-control" id="edit-telefono" name="telefono">
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Celular</label>
+                <input class="form-control" id="edit-celular" name="celular">
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Dirección</label>
+                <input class="form-control" id="edit-direccion" name="direccion">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">
+              Actualizar
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>

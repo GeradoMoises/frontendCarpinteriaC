@@ -1,0 +1,67 @@
+<body>
+<div class="login-card" data-aos="zoom-in">
+
+  <div class="text-center mb-4">
+    <img src="assets/img/IsotipoBlanco.png" alt="Logo" class="logo-icon me-2">
+    <h3>Carpintería Camargo</h3>
+    <p class="text-white-50 small">Acceso para administradores</p>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger text-center py-2">
+    {{ error }}
+  </div>
+
+  <form (ngSubmit)="login()" novalidate autocomplete="off">
+
+    <label class="form-label">Usuario o correo</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="fa-solid fa-user"></i>
+        </span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ingrese su usuario"
+        name="username"
+        [(ngModel)]="username"
+        required
+      >
+    </div>
+
+    <label class="form-label">Contraseña</label>
+    <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="fa-solid fa-lock"></i>
+        </span>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="********"
+        name="password"
+        [(ngModel)]="password"
+        required
+      >
+    </div>
+
+    <!-- Usa submit para que ngSubmit funcione -->
+    <button type="submit" class="btn btn-main w-100 mt-3">
+      Iniciar sesión <i class="fa-solid fa-arrow-right ms-1"></i>
+    </button>
+
+  </form>
+
+  <div class="text-center mt-3">
+    <span class="small text-white-50">¿No tienes cuenta?</span>
+    <a routerLink="/register" class="small-link small ms-1">
+      Crear cuenta nueva
+    </a>
+  </div>
+
+  <div class="text-center mt-2">
+    <a routerLink="/" class="small-link small">
+      <i class="fa-solid fa-arrow-left"></i> Volver al inicio
+    </a>
+  </div>
+
+</div>
+</body>

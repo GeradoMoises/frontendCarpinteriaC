@@ -1,0 +1,234 @@
+/* HERO */
+.contact-hero{
+  position: relative;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.88)),
+    url('https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1600&q=80')
+    center/cover no-repeat fixed;
+  padding: 4rem 0 3.5rem;
+  color: #fff;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+.hero-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem .9rem;
+  border-radius: 999px;
+  background-color: rgba(0,0,0,.4);
+  font-size: .85rem;
+}
+.hero-badge i{ color: var(--accent); }
+.hero-title{ font-size: 2.3rem; font-weight: 700; }
+.hero-subtitle{ max-width: 760px; margin: 0 auto; }
+
+/* SECCIONES */
+section{ padding: 3.5rem 0; }
+.section-title{ font-weight: 700; }
+.section-subtitle{ color: #777; font-size: .95rem; }
+.section-soft{
+  background: linear-gradient(180deg, rgba(245,243,239,.65), rgba(245,243,239,1));
+}
+
+/* PILL */
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .2rem .75rem;
+  border-radius: 999px;
+  font-size: .8rem;
+  background-color: rgba(0,0,0,.05);
+}
+.pill i{ color: var(--accent); }
+
+/* GLASS CARD */
+.glass-card{
+  border-radius: 1.2rem;
+  padding: 1.7rem;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 14px 34px rgba(0,0,0,.08);
+}
+
+/* CONTACTO SIMPLE (reemplaza Canales rápidos) */
+.contact-simple-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-simple-list li{
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.contact-simple-list i{
+  font-size: 1.1rem;
+  margin-top: .2rem;
+}
+
+.contact-simple-list span{
+  display: block;
+  font-size: .95rem;
+  color: #555;
+}
+
+/* REDES (opcional) */
+.social-row{
+  display: flex;
+  gap: .6rem;
+}
+
+.social-btn{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.05);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  transition: all .2s;
+  text-decoration: none;
+}
+
+.social-btn:hover{
+  background: var(--accent);
+  color: #000;
+}
+
+
+/* FORM SHELL */
+.form-shell{
+  max-width: 920px;
+  margin: 0 auto;
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(0,0,0,.08);
+  padding: 1.5rem;
+}
+.form-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.step-chip{
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  background: rgba(255,200,87,.25);
+  font-weight: 600;
+  font-size: .85rem;
+}
+
+/* INPUT ICON */
+.input-icon{
+  position: relative;
+}
+.input-icon i{
+  position: absolute;
+  left: .9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0,0,0,.45);
+}
+.input-icon input{
+  padding-left: 2.6rem;
+}
+
+textarea.form-control{ border-radius: 1rem; }
+.form-control, .form-select{
+  border-radius: 999px;
+  padding: .7rem 1rem;
+}
+.form-control:focus, .form-select:focus{
+  box-shadow: 0 0 0 .2rem rgba(255,200,87,.25);
+  border-color: rgba(255,200,87,.65);
+}
+
+.char-counter{
+  font-size: .8rem;
+  color: #777;
+}
+.mini-note{
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  padding: .8rem 1rem;
+  border-radius: 1rem;
+  background: rgba(0,0,0,.03);
+  color: #555;
+}
+.mini-note i{ color: var(--accent); margin-top: .15rem; }
+
+
+
+
+
+
+/* MAP */
+.highlight-box{
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+  padding: 1.5rem 1.8rem;
+}
+.map-frame{
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+  height: 320px;
+}
+.map-frame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* DIVIDER */
+.divider{
+  height: 1px;
+  background: rgba(0,0,0,.06);
+}
+.badge-soft{
+  padding: .35rem .65rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,.04);
+}
+
+/* BOTONES */
+.btn-main{
+  background-color: var(--accent);
+  border: none;
+  color: #000;
+  padding: .7rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+.btn-main:hover{ background-color: #ffb52c; color:#000; }
+.btn-soft-outline{ border-radius: 999px; }
+
+/* RESPONSIVE */
+@media (max-width: 991.98px){
+  .contact-hero{
+    background-attachment: scroll;
+    padding: 3.5rem 0 3rem;
+    min-height: 65vh;
+  }
+  .hero-title{ font-size: 2rem; }
+}
+@media (max-width: 575.98px){
+  .hero-title{ font-size: 1.7rem; }
+  .form-shell{ padding: 1.2rem; }
+  .highlight-box{ padding: 1.2rem 1.3rem; }
+}

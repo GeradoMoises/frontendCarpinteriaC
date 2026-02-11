@@ -1,0 +1,253 @@
+<app-navbar></app-navbar>
+
+<!-- HERO -->
+<header class="hero-banner">
+  <div class="container">
+    <div class="hero-badge mb-3" data-aos="fade-down">
+      <i class="fa-solid fa-hammer"></i>
+      <span>Soluciones completas en carpintería a medida</span>
+    </div>
+
+    <h1 class="hero-title mb-2" data-aos="fade-up">
+      Nuestros Servicios de Carpintería
+    </h1>
+    <p class="lead hero-subtitle mb-3" data-aos="fade-up" data-aos-delay="100">
+      Te acompañamos desde la idea hasta la instalación final,
+      creando muebles y espacios funcionales, cálidos y duraderos.
+    </p>
+
+    <div data-aos="fade-up" data-aos-delay="200" class="d-flex flex-wrap justify-content-center gap-2">
+      <a href="/" class="btn btn-soft-outline btn-outline-light d-inline-flex align-items-center justify-content-center gap-2">
+        <i class="fa-solid fa-house"></i>
+        <span>Volver al inicio</span>
+      </a>
+
+      <a th:href="@{/cotizacion}" class="btn btn-main">
+        <i class="fa-solid fa-envelope"></i> Solicitar cotización
+      </a>
+    </div>
+  </div>
+
+  <!-- Indicador "Desplázate" -->
+  <div class="scroll-indicator d-none d-md-flex">
+    <span>Desplázate</span>
+    <div class="scroll-indicator-dot"></div>
+  </div>
+</header>
+<!-- SERVICIOS PRINCIPALES -->
+<section>
+  <div class="container">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <h2 class="section-title">¿En qué podemos ayudarte?</h2>
+      <p class="section-subtitle mb-3">
+        Estos son los servicios principales que ofrecemos en Carpintería Art&Wood.
+      </p>
+
+      <!-- “Filtros” visuales (solo decorativos, para UX) -->
+      <div class="filter-chips" id="serviceChips">
+        <div class="chip active" data-target="all">
+          <i class="fa-solid fa-border-all"></i> Todos
+        </div>
+        <div class="chip" data-target="mobiliario">
+          <i class="fa-solid fa-couch"></i> Mobiliario
+        </div>
+        <div class="chip" data-target="cocinas">
+          <i class="fa-solid fa-kitchen-set"></i> Cocinas y closets
+        </div>
+        <div class="chip" data-target="restauracion">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Restauración
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Servicio 1 -->
+      <div class="col-md-4" data-aos="fade-up" data-service="mobiliario">
+        <div class="service-card">
+          <div class="icon-circle">
+            <i class="fa-solid fa-couch"></i>
+          </div>
+          <h5>Mobiliario a medida</h5>
+          <p class="small text-muted mb-2">
+            Diseñamos y fabricamos muebles personalizados para salas, comedores,
+            dormitorios, oficinas y locales comerciales.
+          </p>
+
+          <div class="mb-2">
+            <span class="service-tag">Salas</span>
+            <span class="service-tag">Comedores</span>
+            <span class="service-tag">Oficinas</span>
+          </div>
+
+          <ul class="check-list mt-2 mb-2">
+            <li><i class="fa-solid fa-check"></i> Diseño según tu espacio y estilo.</li>
+            <li><i class="fa-solid fa-check"></i> Variedad de maderas y acabados.</li>
+            <li><i class="fa-solid fa-check"></i> Opción de entrega e instalación.</li>
+          </ul>
+
+          <button class="service-toggle" type="button">
+            Ver más detalles <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="service-extra">
+            Ideal para quienes buscan piezas únicas que se adapten a rincones
+            específicos, muebles bajo escaleras, escritorios a medida o soluciones
+            especiales para negocios.
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100" data-service="cocinas">
+        <div class="service-card">
+          <div class="icon-circle">
+            <i class="fa-solid fa-kitchen-set"></i>
+          </div>
+          <h5>Cocinas y closets</h5>
+          <p class="small text-muted mb-2">
+            Implementación completa de cocinas, closets y vestidores con acabados modernos,
+            optimizando cada centímetro de espacio.
+          </p>
+
+          <div class="mb-2">
+            <span class="service-tag">Cocinas integrales</span>
+            <span class="service-tag">Closets empotrados</span>
+            <span class="service-tag">Vestidores</span>
+          </div>
+
+          <ul class="check-list mt-2 mb-2">
+            <li><i class="fa-solid fa-check"></i> Medición en tu domicilio.</li>
+            <li><i class="fa-solid fa-check"></i> Planos o renders de propuesta.</li>
+            <li><i class="fa-solid fa-check"></i> Herrajes y accesorios de calidad.</li>
+          </ul>
+
+          <button class="service-toggle" type="button">
+            Ver más detalles <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="service-extra">
+            Podemos incorporar iluminación LED, sistemas de cierre suave, módulos
+            extraíbles y soluciones inteligentes para aprovechar al máximo espacios
+            pequeños o irregulares.
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" data-service="restauracion">
+        <div class="service-card">
+          <div class="icon-circle">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h5>Restauración y mantenimiento</h5>
+          <p class="small text-muted mb-2">
+            Restauramos muebles antiguos, reparamos estructuras y renovamos acabados
+            para prolongar la vida de tus piezas favoritas.
+          </p>
+
+          <div class="mb-2">
+            <span class="service-tag">Restauración</span>
+            <span class="service-tag">Lacado y barnizado</span>
+            <span class="service-tag">Refuerzos estructurales</span>
+          </div>
+
+          <ul class="check-list mt-2 mb-2">
+            <li><i class="fa-solid fa-check"></i> Respeto al diseño original.</li>
+            <li><i class="fa-solid fa-check"></i> Reparaciones discretas y duraderas.</li>
+            <li><i class="fa-solid fa-check"></i> Retiro y entrega a domicilio.</li>
+          </ul>
+
+          <button class="service-toggle" type="button">
+            Ver más detalles <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="service-extra">
+            Tratamos la madera contra humedad y plagas, igualamos tonos y
+            devolvemos vida a muebles con valor sentimental o histórico.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO TRABAJAMOS -->
+<section class="bg-white">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h2 class="section-title">Nuestro flujo de trabajo</h2>
+        <p class="section-subtitle mb-3">
+          Un proceso claro para que sepas en todo momento en qué etapa está tu proyecto.
+        </p>
+
+        <div class="highlight-box mb-3">
+          <div class="pill mb-2">
+            <i class="fa-solid fa-ruler-combined"></i> Pasos del proyecto
+          </div>
+
+          <ol class="ps-3 mb-0 small">
+            <li class="mb-2">
+              <strong>Consulta inicial:</strong> Nos cuentas tu idea, medidas aproximadas y estilo.
+            </li>
+            <li class="mb-2">
+              <strong>Propuesta y cotización:</strong> Definimos diseño, materiales y cronograma.
+            </li>
+            <li class="mb-2">
+              <strong>Fabricación en taller:</strong> Corte, armado, lijado y acabados.
+            </li>
+            <li>
+              <strong>Entrega e instalación:</strong> Instalamos el proyecto y realizamos ajustes finos.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="highlight-box">
+          <h5 class="mb-3">
+            <i class="fa-solid fa-circle-info me-2 text-warning"></i>
+            Preguntas frecuentes
+          </h5>
+
+          <p class="small mb-2">
+            <strong>¿Realizan visitas a domicilio?</strong><br>
+            Sí, podemos coordinar una visita para tomar medidas y evaluar el espacio.
+          </p>
+
+          <p class="small mb-2">
+            <strong>¿Qué tiempo tarda un proyecto?</strong><br>
+            Depende del tamaño, pero en promedio entre 2 y 4 semanas desde la aprobación del diseño.
+          </p>
+
+          <p class="small mb-2">
+            <strong>¿Trabajan solo en Lima?</strong><br>
+            Principalmente en Lima, pero podemos evaluar proyectos en otras zonas según el caso.
+          </p>
+
+          <p class="small mb-0">
+            <strong>¿Ofrecen garantía?</strong><br>
+            Sí, ofrecemos garantía sobre la estructura y acabados de nuestros muebles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section>
+  <div class="container">
+    <div class="highlight-box text-center" data-aos="zoom-in">
+      <h3 class="mb-2">¿Listo para empezar tu proyecto?</h3>
+      <p class="section-subtitle mb-3">
+        Cuéntanos qué tienes en mente y armaremos una propuesta a tu medida.
+      </p>
+      <a href="/#contacto" class="btn btn-main me-2 mb-2">
+        <i class="fa-solid fa-envelope"></i> Ir al formulario de contacto
+      </a>
+      <a href="/productos" class="btn btn-outline-dark btn-soft-outline mb-2">
+        <i class="fa-solid fa-chair"></i> Ver catálogo de productos
+      </a>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

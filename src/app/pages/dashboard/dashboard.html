@@ -1,0 +1,122 @@
+<div class="layout">
+
+  <!-- ASIDE Reutilizable -->
+  <app-aside [activeView]="currentView"
+  (viewChange)="switchView($event)"></app-aside>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="content">
+    <!-- TOPBAR Reutilizable -->
+    <app-topbar
+      [title]="titles[currentView].title"
+      [subtitle]="titles[currentView].subtitle"
+    ></app-topbar>
+
+
+    <!-- CONTENIDO INTERIOR -->
+    <main class="content-inner">
+
+      <!-- ========== VISTA 1: DASHBOARD ========== -->
+      @if (currentView === 'graficos') {
+        <div >
+          <app-graficos></app-graficos>
+        </div>      }
+      <!-- ========== VISTA 2: LÍNEAS DE DISEÑO ========== -->
+      @if (currentView === 'linea') {
+      <div >
+        <app-linea></app-linea>
+      </div>
+      }
+      <!-- ========== VISTA 3: CATEGORÍAS ========== -->
+      @if (currentView === 'categoria') {
+      <div >
+        <app-categoria></app-categoria>
+      </div>
+      }
+      <!-- ========== VISTA 4: PRODUCTOS ========== -->
+      @if (currentView === 'productos') {
+      <div >
+        <app-productos></app-productos>
+      </div>
+      }
+      <!-- ========== VISTA 5: EMPLEADOS  ========== -->
+      @if (currentView === 'empleados') {
+      <div>
+        <app-empleados></app-empleados>
+      </div>
+      }
+
+      <!-- ========== VISTA 6: Clientes  ========== -->
+      @if (currentView === 'clientes') {
+        <div>
+          <app-clientes></app-clientes>
+        </div>
+      }
+
+      <!-- ========== VISTA 6: PEDIDOS ========== -->
+      <div id="view-pedidos" class="view-container">
+        <div class="section-header" data-aos="fade-up">
+          <div>
+            <h2>Pedidos</h2>
+            <small>Gestiona y sigue los pedidos de tus clientes</small>
+          </div>
+          <button class="btn btn-sm btn-primary">
+            <i class="fa-solid fa-plus me-1"></i> Nuevo Pedido
+          </button>
+        </div>
+
+        <!-- En construcción -->
+        <div class="card card-soft text-center py-5" data-aos="fade-up">
+          <div class="card-body">
+            <i class="fa-solid fa-tools display-4 text-muted mb-3"></i>
+            <h4>En Construcción</h4>
+            <p class="text-muted mb-0">La vista de pedidos estará disponible próximamente.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== VISTA 7: USUARIOS ========== -->
+      <div id="view-usuarios" class="view-container">
+        <div class="section-header" data-aos="fade-up">
+          <div>
+            <h2>Usuarios</h2>
+            <small>Administra los usuarios del sistema</small>
+          </div>
+          <button class="btn btn-sm btn-primary">
+            <i class="fa-solid fa-plus me-1"></i> Nuevo Usuario
+          </button>
+        </div>
+
+        <!-- En construcción -->
+        <div class="card card-soft text-center py-5" data-aos="fade-up">
+          <div class="card-body">
+            <i class="fa-solid fa-tools display-4 text-muted mb-3"></i>
+            <h4>En Construcción</h4>
+            <p class="text-muted mb-0">La vista de usuarios estará disponible próximamente.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== VISTA 8: CONFIGURACIÓN ========== -->
+      <div id="view-configuracion" class="view-container">
+        <div class="section-header" data-aos="fade-up">
+          <div>
+            <h2>Configuración</h2>
+            <small>Configura los parámetros del sistema</small>
+          </div>
+        </div>
+
+        <!-- En construcción -->
+        <div class="card card-soft text-center py-5" data-aos="fade-up">
+          <div class="card-body">
+            <i class="fa-solid fa-tools display-4 text-muted mb-3"></i>
+            <h4>En Construcción</h4>
+            <p class="text-muted mb-0">La vista de configuración estará disponible próximamente.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>

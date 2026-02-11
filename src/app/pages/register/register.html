@@ -1,0 +1,99 @@
+<body>
+
+<div class="register-card" data-aos="zoom-in">
+
+  <div class="text-center mb-4">
+    <img src="assets/img/IsotipoBlanco.png" alt="Logo" class="logo-icon me-2">
+    <h3>Crear cuenta</h3>
+    <p class="text-white-50 small">
+      Registra un nuevo usuario administrador para la carpintería.
+    </p>
+    <span class="badge-role">
+            <i class="fa-solid fa-shield-halved me-1"></i> Acceso restringido
+        </span>
+  </div>
+
+  <!-- FORMULARIO REGISTRO -->
+  <!-- Si luego usas Thymeleaf + Spring Security, puedes ajustar th:action y th:field -->
+  <form method="post">
+
+    <!-- NOMBRE COMPLETO -->
+    <label class="form-label">Nombre completo</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+      <input type="text" class="form-control" name="nombreCompleto"
+             placeholder="Ej: Juan Pérez" required>
+    </div>
+
+    <!-- EMAIL -->
+    <label class="form-label">Correo electrónico</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+      <input type="email" class="form-control" name="correo"
+             placeholder="tucorreo@ejemplo.com" required>
+    </div>
+
+    <!-- USUARIO -->
+    <label class="form-label">Usuario</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-id-badge"></i></span>
+      <input type="text" class="form-control" name="usuario"
+             placeholder="Nombre de usuario" required>
+    </div>
+
+    <!-- ROL -->
+    <label class="form-label">Rol</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-user-gear"></i></span>
+      <select class="form-select" name="rol">
+        <option value="ADMIN" selected>Administrador</option>
+        <option value="EMPLEADO">Empleado</option>
+      </select>
+    </div>
+
+    <!-- CONTRASEÑA -->
+    <label class="form-label">Contraseña</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+      <input id="password" type="password" class="form-control" name="password"
+             placeholder="********" required>
+      <span class="input-group-text" style="cursor:pointer;" onclick="togglePassword('password','iconPass1')">
+                <i id="iconPass1" class="fa-solid fa-eye"></i>
+            </span>
+    </div>
+
+    <!-- CONFIRMAR CONTRASEÑA -->
+    <label class="form-label">Confirmar contraseña</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+      <input id="password2" type="password" class="form-control" name="passwordConfirm"
+             placeholder="Repite la contraseña" required>
+      <span class="input-group-text" style="cursor:pointer;" onclick="togglePassword('password2','iconPass2')">
+                <i id="iconPass2" class="fa-solid fa-eye"></i>
+            </span>
+    </div>
+
+    <!-- MENSAJE DE ERROR CLIENTE -->
+    <div id="errorMsg" class="text-danger small mb-2" style="display:none;">
+      <i class="fa-solid fa-triangle-exclamation me-1"></i>
+      Las contraseñas no coinciden.
+    </div>
+
+    <!-- BOTÓN -->
+    <button type="submit" class="btn btn-main w-100 mt-2" onclick="return validarPasswords();">
+      Crear cuenta <i class="fa-solid fa-user-plus ms-1"></i>
+    </button>
+  </form>
+
+  <div class="text-center mt-3">
+    <a routerLink="/login" class="small-link small">
+      <i class="fa-solid fa-arrow-left"></i> Ya tengo cuenta, ir a login
+    </a>
+  </div>
+
+  <div class="text-center mt-2">
+    <a routerLink="/" class="small-link small"><i class="fa-solid fa-house"></i> Volver al inicio </a>
+  </div>
+</div>
+
+</body>

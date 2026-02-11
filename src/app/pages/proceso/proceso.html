@@ -1,0 +1,270 @@
+<app-navbar></app-navbar>
+
+<!-- HERO -->
+<header class="hero-banner">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7" data-aos="fade-right">
+
+        <div class="hero-badge mb-3">
+          <i class="fa-solid fa-diagram-project"></i>
+          <span>Un proceso claro para proyectos sin sorpresas</span>
+        </div>
+
+        <h1 class="hero-title mb-2">Nuestro proceso de trabajo</h1>
+
+        <p class="lead mb-3">
+          Desde la primera idea hasta la instalación final, te acompañamos paso a paso
+          para lograr el mueble o ambiente que estás buscando.
+        </p>
+
+        <div class="mb-2">
+          <small>
+            <i class="fa-solid fa-circle-check text-warning me-1"></i>
+            Comunicación constante • Fechas claras • Resultados a medida
+          </small>
+        </div>
+
+        <div class="mt-3 d-flex flex-wrap gap-2">
+          <a th:href="@{/cotizacion}" class="btn btn-main btn-sm">
+            <i class="fa-solid fa-envelope"></i> Solicitar cotización
+          </a>
+          <a th:href="@{/servicios}" class="btn btn-outline-light btn-sm">
+            <i class="fa-solid fa-hammer"></i> Ver servicios
+          </a>
+          <a th:href="@{/index}" class="btn btn-outline-light btn-sm">
+            <i class="fa-solid fa-house"></i> Volver al inicio
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left">
+        <ul class="check-list mt-3">
+          <li><i class="fa-solid fa-check-circle"></i> Te ayudamos a definir mejor tu idea.</li>
+          <li><i class="fa-solid fa-check-circle"></i> Explicamos materiales y opciones.</li>
+          <li><i class="fa-solid fa-check-circle"></i> Cumplimos plazos acordados.</li>
+          <li><i class="fa-solid fa-check-circle"></i> Garantía sobre estructura y acabados.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDICADOR "DESPLÁZATE" -->
+  <div class="scroll-indicator d-none d-md-flex">
+    <span>Desplázate</span>
+    <div class="scroll-indicator-dot"></div>
+  </div>
+</header>
+
+<!-- TIMELINE GENERAL -->
+<section>
+  <div class="container">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <h2 class="section-title">Etapas del proyecto</h2>
+      <p class="section-subtitle">
+        Esta es la ruta que seguimos para cada mueble o ambiente que diseñamos y construimos.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- IZQUIERDA -->
+      <div class="col-lg-7" data-aos="fade-right">
+
+        <div class="timeline-wrapper">
+          <div class="timeline-line"></div>
+
+          <!-- PASO 1 -->
+          <div class="timeline-item">
+            <div class="timeline-badge">1</div>
+            <div class="timeline-card">
+              <div class="d-flex align-items-center mb-1">
+                <div class="timeline-icon">
+                  <i class="fa-solid fa-comments"></i>
+                </div>
+                <h6 class="mb-0">Escuchamos tu idea</h6>
+              </div>
+              <p class="small text-muted mb-1">
+                Nos cuentas qué necesitas: tipo de mueble, medidas aproximadas, estilo y uso.
+              </p>
+              <p class="small mb-0">
+                <strong>Formato:</strong> llamada, WhatsApp, correo o reunión presencial/virtual.
+              </p>
+            </div>
+          </div>
+
+          <!-- PASO 2 -->
+          <div class="timeline-item">
+            <div class="timeline-badge">2</div>
+            <div class="timeline-card">
+              <div class="d-flex align-items-center mb-1">
+                <div class="timeline-icon"><i class="fa-solid fa-pencil-ruler"></i></div>
+                <h6 class="mb-0">Diseño y cotización</h6>
+              </div>
+              <p class="small text-muted mb-1">
+                Preparamos propuesta con medidas, materiales, acabados y presupuesto.
+              </p>
+              <p class="small mb-0"><strong>Opcional:</strong> bocetos o renders.</p>
+            </div>
+          </div>
+
+          <!-- PASO 3 -->
+          <div class="timeline-item">
+            <div class="timeline-badge">3</div>
+            <div class="timeline-card">
+              <div class="d-flex align-items-center mb-1">
+                <div class="timeline-icon"><i class="fa-solid fa-hammer"></i></div>
+                <h6 class="mb-0">Fabricación en taller</h6>
+              </div>
+              <p class="small text-muted mb-1">
+                Corte, armado, lijado y aplicación de acabados en nuestro taller.
+              </p>
+              <p class="small mb-0"><strong>Te mantenemos informado:</strong> avances por fotos o video.</p>
+            </div>
+          </div>
+
+          <!-- PASO 4 -->
+          <div class="timeline-item">
+            <div class="timeline-badge">4</div>
+            <div class="timeline-card">
+              <div class="d-flex align-items-center mb-1">
+                <div class="timeline-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                <h6 class="mb-0">Entrega e instalación</h6>
+              </div>
+              <p class="small text-muted mb-1">
+                Instalación en tu espacio y ajustes finales.
+              </p>
+              <p class="small mb-0"><strong>Finalizamos:</strong> revisión conjunta.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DERECHA -->
+      <div class="col-lg-5 align-self-start timeline-side" data-aos="fade-left">
+        <div class="info-card">
+          <div class="pill mb-2">
+            <i class="fa-solid fa-clock"></i>
+            <span>Tiempos referenciales</span>
+          </div>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-check"></i> Muebles pequeños: 1–2 semanas.</li>
+            <li><i class="fa-solid fa-check"></i> Muebles medianos: 2–4 semanas.</li>
+            <li><i class="fa-solid fa-check"></i> Proyectos integrales: desde 4 semanas.</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <div class="pill mb-2">
+            <i class="fa-solid fa-handshake"></i>
+            <span>Formas de trabajo</span>
+          </div>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-check"></i> Podemos trabajar con tu diseño o crearlo desde cero.</li>
+            <li><i class="fa-solid fa-check"></i> Te orientamos en materiales y presupuesto.</li>
+            <li><i class="fa-solid fa-check"></i> Pagos por etapas según proyecto.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN EXTRA -->
+<section class="bg-white">
+  <div class="container">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <h2 class="section-title">¿Qué incluye cada etapa?</h2>
+      <p class="section-subtitle">Más detalles para que sepas qué esperar en cada paso.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="info-card h-100">
+          <div class="pill mb-2">
+            <i class="fa-solid fa-ruler-combined"></i>
+            <span>1. Reunión y toma de medidas</span>
+          </div>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-check"></i> Revisión del espacio.</li>
+            <li><i class="fa-solid fa-check"></i> Recomendación de proporciones.</li>
+            <li><i class="fa-solid fa-check"></i> Accesos para ingreso del mueble.</li>
+            <li><i class="fa-solid fa-check"></i> Definición de estilo inicial.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="info-card h-100">
+          <div class="pill mb-2">
+            <i class="fa-solid fa-palette"></i>
+            <span>2. Materiales y acabados</span>
+          </div>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-check"></i> Tipos de madera y tableros.</li>
+            <li><i class="fa-solid fa-check"></i> Barnices, lacas y pintura.</li>
+            <li><i class="fa-solid fa-check"></i> Selección de herrajes.</li>
+            <li><i class="fa-solid fa-check"></i> Recomendaciones según uso.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="info-card h-100">
+          <div class="pill mb-2">
+            <i class="fa-solid fa-helmet-safety"></i>
+            <span>3. Fabricación y control de calidad</span>
+          </div>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-check"></i> Corte y armado.</li>
+            <li><i class="fa-solid fa-check"></i> Lijado y preparación.</li>
+            <li><i class="fa-solid fa-check"></i> Aplicación de acabados.</li>
+            <li><i class="fa-solid fa-check"></i> Revisión de uniones.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="info-card h-100">
+          <div class="pill mb-2">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span>4. Instalación y ajustes finales</span>
+          </div>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-check"></i> Traslado cuidadoso.</li>
+            <li><i class="fa-solid fa-check"></i> Nivelación y regulaciones.</li>
+            <li><i class="fa-solid fa-check"></i> Ajustes finos.</li>
+            <li><i class="fa-solid fa-check"></i> Recomendaciones de uso.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section>
+  <div class="container">
+    <div class="cta-box text-center" data-aos="zoom-in">
+      <h3 class="mb-2">¿Quieres iniciar tu proyecto con nosotros?</h3>
+      <p class="section-subtitle mb-3">
+        Ahora que conoces el proceso, cuéntanos qué tienes en mente.
+      </p>
+
+      <a th:href="@{/cotizacion}" class="btn btn-main me-2 mb-2">
+        <i class="fa-solid fa-envelope-open-text"></i> Solicitar cotización
+      </a>
+
+      <a th:href="@{/servicios}" class="btn btn-outline-dark mb-2">
+        <i class="fa-solid fa-hammer"></i> Ver todos los servicios
+      </a>
+
+      <a th:href="@{/index}"class="btn btn-outline-dark mb-2">
+        <i class="fa-solid fa-house"></i> Volver al inicio
+      </a>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

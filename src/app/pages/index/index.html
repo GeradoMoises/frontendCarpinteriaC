@@ -1,0 +1,413 @@
+<app-navbar></app-navbar>
+<app-header></app-header>
+
+<!-- ¿QUE HACEMOS? -->
+<section id="servicios">
+  <div class="container">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <h2 class="section-title">¿Qué hacemos?</h2>
+      <p class="section-subtitle">
+        Servicios de carpintería pensados para cada tipo de proyecto.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card card-soft h-100">
+          <div class="card-body">
+            <div class="icon-circle mb-3">
+              <i class="fa-solid fa-couch"></i>
+            </div>
+            <h5>Mobiliario a medida</h5>
+            <p class="small text-muted mb-0">
+              Diseñamos y fabricamos muebles personalizados para todo tipo de espacios.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card card-soft h-100">
+          <div class="card-body">
+            <div class="icon-circle mb-3">
+              <i class="fa-solid fa-kitchen-set"></i>
+            </div>
+            <h5>Cocinas y closets</h5>
+            <p class="small text-muted mb-0">
+              Diseño funcional con acabados modernos y herrajes premium.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card card-soft h-100">
+          <div class="card-body">
+            <div class="icon-circle mb-3">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h5>Restauración</h5>
+            <p class="small text-muted mb-0">
+              Renovamos muebles respetando su diseño original.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- PRODUCTOS DESTACADOS -->
+<section id="productos" class="bg-white">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h2 class="section-title">Productos destacados</h2>
+        <p class="section-subtitle mb-0">Piezas representativas de nuestro trabajo</p>
+      </div>
+      <a routerLink="/productos" class="btn btn-sm btn-main">
+        Ver catálogo <i class="fa-solid fa-arrow-right ms-1"></i>
+      </a>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card card-soft product-card">
+          <img class="product-img"
+               src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4"
+               alt="Mesa">
+          <div class="card-body">
+            <h5>Mesa rústica</h5>
+            <p class="small text-muted">Madera maciza</p>
+            <span class="fw-semibold text-success">S/ 1,250.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-soft product-card">
+          <img class="product-img"
+               src="https://huk.pe/wp-content/uploads/2024/09/Estante-Modular-Decorativo-Ivett-Duna-01.jpg"
+               alt="Estantería">
+          <div class="card-body">
+            <h5>Estantería modular</h5>
+            <p class="small text-muted">Configuración flexible</p>
+            <span class="fw-semibold text-success">Desde S/ 890.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-soft product-card">
+          <img class="product-img"
+               src="https://www.bkciandre.com/wp-content/uploads/2025/04/Modern-built-in-wardrobe-with-closed-storage-scaled.webp"
+               alt="Closet">
+          <div class="card-body">
+            <h5>Closet empotrado</h5>
+            <p class="small text-muted">Proyecto premium</p>
+            <span class="fw-semibold text-success">A cotizar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TRABAJOS REALIZADOS (GALERÍA VISUAL) -->
+<section id="trabajos" class="section-works bg-crema">
+  <div class="container">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow">Portfolio</span>
+        <h2 class="section-title mb-1">Trabajos realizados</h2>
+        <p class="section-subtitle mb-0">
+          Inspírate con proyectos reales: cocinas, closets, muebles y restauraciones.
+        </p>
+      </div>
+
+      <a class="btn btn-sm btn-main d-inline-flex align-items-center">
+        Ver más Productos <i class="fa-solid fa-arrow-right ms-1"></i>
+      </a>
+    </div>
+
+    <!-- chips filtro -->
+    <div class="filter-chips mb-3" id="workChips" data-aos="fade-up">
+      <div class="chip active" data-filter="all"><i class="fa-solid fa-border-all"></i> Todos</div>
+      <div class="chip" data-filter="cocinas"><i class="fa-solid fa-kitchen-set"></i> Cocinas</div>
+      <div class="chip" data-filter="closets"><i class="fa-solid fa-warehouse"></i> Closets</div>
+      <div class="chip" data-filter="muebles"><i class="fa-solid fa-couch"></i> Muebles</div>
+      <div class="chip" data-filter="restauracion"><i class="fa-solid fa-screwdriver-wrench"></i> Restauración</div>
+    </div>
+
+    <!-- grid -->
+    <div class="row g-3 works-grid" data-aos="fade-up">
+      <!-- Item 1 -->
+      <div class="col-6 col-lg-3 work-item" data-cat="muebles">
+        <button class="work-card" type="button" data-bs-toggle="modal" data-bs-target="#workModal"
+                data-img="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80"
+                data-title="Mesa de comedor"
+                data-desc="Madera maciza, acabado natural y estructura reforzada.">
+          <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=80" alt="Mesa de comedor">
+          <span class="work-overlay">
+                        <span class="work-tag">Muebles</span>
+                        <span class="work-title">Mesa de comedor</span>
+                        <span class="work-cta"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver</span>
+                    </span>
+        </button>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="col-6 col-lg-3 work-item" data-cat="cocinas">
+        <button class="work-card" type="button" data-bs-toggle="modal" data-bs-target="#workModal"
+                data-img="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80"
+                data-title="Cocina integral"
+                data-desc="Distribución eficiente, herrajes premium y acabados modernos.">
+          <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80" alt="Cocina integral">
+          <span class="work-overlay">
+                        <span class="work-tag">Cocinas</span>
+                        <span class="work-title">Cocina integral</span>
+                        <span class="work-cta"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver</span>
+                    </span>
+        </button>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="col-6 col-lg-3 work-item" data-cat="closets">
+        <button class="work-card" type="button" data-bs-toggle="modal" data-bs-target="#workModal"
+                data-img="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80"
+                data-title="Closet empotrado"
+                data-desc="Puertas corredizas, organización interior y opción LED.">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="Closet empotrado">
+          <span class="work-overlay">
+                        <span class="work-tag">Closets</span>
+                        <span class="work-title">Closet empotrado</span>
+                        <span class="work-cta"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver</span>
+                    </span>
+        </button>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="col-6 col-lg-3 work-item" data-cat="restauracion">
+        <button class="work-card" type="button" data-bs-toggle="modal" data-bs-target="#workModal"
+                data-img="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1600&q=80"
+                data-title="Restauración de mesa"
+                data-desc="Recuperación del acabado y refuerzo estructural con respeto al diseño original.">
+          <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=900&q=80" alt="Restauración de mesa">
+          <span class="work-overlay">
+                        <span class="work-tag">Restauración</span>
+                        <span class="work-title">Restauración</span>
+                        <span class="work-cta"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver</span>
+                    </span>
+        </button>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="col-12 col-lg-6 work-item" data-cat="muebles">
+        <button class="work-card work-card-wide" type="button" data-bs-toggle="modal" data-bs-target="#workModal"
+                data-img="https://oechsle.vteximg.com.br/arquivos/ids/14911657-1000-1000/image-0eaa0e4e1ad54c7b8eca957add0653b0.jpg?v=638282751613200000"
+                data-title="Mueble TV + panel"
+                data-desc="Solución completa: almacenamiento oculto, pasacables y acabado mate.">
+          <img src="https://oechsle.vteximg.com.br/arquivos/ids/14911657-1000-1000/image-0eaa0e4e1ad54c7b8eca957add0653b0.jpg?v=638282751613200000" alt="Mueble TV">
+          <span class="work-overlay">
+                        <span class="work-tag">Muebles</span>
+                        <span class="work-title">Mueble TV + panel</span>
+                        <span class="work-cta"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver</span>
+                    </span>
+        </button>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="col-6 col-lg-3 work-item" data-cat="cocinas">
+        <button class="work-card" type="button" data-bs-toggle="modal" data-bs-target="#workModal"
+                data-img="https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?auto=format&fit=crop&w=1600&q=80"
+                data-title="Cocina minimal"
+                data-desc="Módulos altos/bajos, cierre suave y encimera integrada.">
+          <img src="https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?auto=format&fit=crop&w=900&q=80" alt="Cocina minimal">
+          <span class="work-overlay">
+                        <span class="work-tag">Cocinas</span>
+                        <span class="work-title">Cocina minimal</span>
+                        <span class="work-cta"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver</span>
+                    </span>
+        </button>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="col-6 col-lg-3 work-item" data-cat="closets">
+        <button class="work-card" type="button" data-bs-toggle="modal" data-bs-target="#workModal"
+                data-img="https://oechsle.vteximg.com.br/arquivos/ids/23016889-1000-1000/2899058_1.jpg?v=638984924956870000"
+                data-title="Closet moderno"
+                data-desc="Organización inteligente con módulos y compartimentos a medida.">
+          <img src="https://oechsle.vteximg.com.br/arquivos/ids/23016889-1000-1000/2899058_1.jpg?v=638984924956870000" alt="Closet moderno">
+          <span class="work-overlay">
+                        <span class="work-tag">Closets</span>
+                        <span class="work-title">Closet moderno</span>
+                        <span class="work-cta"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver</span>
+                    </span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- MODAL TRABAJOS -->
+<div class="modal fade" id="workModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content work-modal">
+      <div class="modal-body p-0">
+        <img id="workModalImg" src="" class="img-fluid w-100" alt="Trabajo ampliado">
+      </div>
+      <div class="modal-footer d-flex align-items-start justify-content-between gap-2">
+        <div>
+          <div class="fw-semibold" id="workModalTitle">Título</div>
+          <div class="small text-muted" id="workModalDesc">Descripción</div>
+        </div>
+        <button type="button" class="btn btn-outline-dark btn-soft-outline" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="bg-white">
+  <div class="container">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <span class="section-eyebrow">Clientes Felices</span>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      <p class="section-subtitle">Historias reales de personas que confiaron en nuestro trabajo.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card card-soft h-100">
+          <div class="card-body">
+            <p class="small mb-3">
+              “Encargamos la implementación completa de la cocina y quedó mejor de lo esperado.
+              Son puntuales, ordenados y muy detallistas.”
+            </p>
+            <div class="d-flex align-items-center gap-2">
+              <img class="avatar"
+                   src="https://randomuser.me/api/portraits/women/68.jpg"
+                   alt="Cliente 1">
+              <div>
+                <strong>Lucía Morales</strong><br>
+                <span class="small text-muted">Proyecto cocina integral</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card card-soft h-100">
+          <div class="card-body">
+            <p class="small mb-3">
+              “Nos fabricaron todo el mobiliario de la cafetería. Las mesas y barras son resistentes,
+              bonitas y se adaptan al estilo que buscábamos.”
+            </p>
+            <div class="d-flex align-items-center gap-2">
+              <img class="avatar"
+                   src="https://randomuser.me/api/portraits/men/32.jpg"
+                   alt="Cliente 2">
+              <div>
+                <strong>Carlos Peña</strong><br>
+                <span class="small text-muted">Dueño de cafetería</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card card-soft h-100">
+          <div class="card-body">
+            <p class="small mb-3">
+              “Restauraron un comedor heredado de mis abuelos y ahora luce como nuevo,
+              respetando el diseño original. Trabajo impecable.”
+            </p>
+            <div class="d-flex align-items-center gap-2">
+              <img class="avatar"
+                   src="https://randomuser.me/api/portraits/women/12.jpg"
+                   alt="Cliente 3">
+              <div>
+                <strong>Andrea Salas</strong><br>
+                <span class="small text-muted">Restauración de mobiliario</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- POR QUÉ ELEGIRNOS -->
+<section id="porque-elegirnos" class="section-why">
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-eyebrow">Nuestra diferencia</span>
+      <h2 class="section-title">¿Por qué elegir Carpinteria Camargo?</h2>
+      <p class="section-subtitle">
+        No solo fabricamos muebles, diseñamos soluciones pensadas para durar.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="why-card h-100">
+          <div class="why-icon">
+            <i class="fa-solid fa-ruler-combined"></i>
+          </div>
+          <h6>100% a medida</h6>
+          <p>
+            Cada proyecto se adapta exactamente a tu espacio, necesidades y estilo.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-card h-100">
+          <div class="why-icon">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h6>Instalación profesional</h6>
+          <p>
+            Entregamos todo instalado, nivelado y listo para usarse desde el primer día.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="why-card h-100">
+          <div class="why-icon">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <h6>Materiales de calidad</h6>
+          <p>
+            Maderas seleccionadas, herrajes confiables y acabados durables.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="why-card h-100">
+          <div class="why-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h6>Garantía y respaldo</h6>
+          <p>
+            Respondemos por nuestro trabajo y cuidamos cada detalle.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA suave -->
+    <div class="text-center mt-5" data-aos="zoom-in">
+      <a class="btn btn-main px-4">
+        <i class="fa-solid fa-envelope"></i> Solicitar cotización
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<app-footer></app-footer>

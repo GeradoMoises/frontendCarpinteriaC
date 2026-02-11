@@ -1,0 +1,160 @@
+/* ===========================
+   DASHBOARD (view-dashboard)
+   =========================== */
+
+/* Header de sección */
+.section-header{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:.75rem;
+  margin-bottom:1.2rem;
+}
+.section-header h2{
+  margin:0;
+  font-size:1.4rem;
+  font-weight:600;
+}
+.section-header small{
+  color:#777;
+}
+
+/* Cards métricas */
+.card-metric{
+  border:0;
+  border-radius:1rem;
+  background:#fff;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+.metric-label{
+  font-size:.8rem;
+  color:#777;
+}
+.metric-value{
+  font-size:1.45rem;
+  font-weight:800;
+  line-height:1.1;
+}
+.metric-trend{
+  font-size:.8rem;
+  margin-top:.25rem;
+}
+
+/* Ícono circular de métrica */
+.card-metric-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  box-shadow:0 10px 18px rgba(0,0,0,.12);
+}
+
+/* Gradientes de íconos */
+.bg-soft-primary{ background:linear-gradient(135deg,#8B5A2B,#5C3B1B); }
+.bg-soft-success{ background:linear-gradient(135deg,#3fb67c,#268a59); }
+.bg-soft-warning{ background:linear-gradient(135deg,#FFC857,#ff9b1a); }
+.bg-soft-info{ background:linear-gradient(135deg,#3f89ff,#245cbe); }
+
+/* Card genérica */
+.card-soft{
+  border:0;
+  border-radius:1rem;
+  background:#fff;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+/* Para que las cards con gráficos usen bien el alto */
+.card-soft .card-body{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.card-soft .card-body > div:first-child{
+  flex-shrink:0;
+}
+
+/* Links pequeños */
+a.small{
+  color:#6b7280;
+}
+a.small:hover{
+  color:#111827;
+}
+
+/* Tabla */
+.table thead{
+  background:#f3f2ed;
+  font-size:.85rem;
+}
+.table.table-sm thead th{
+  font-weight:600;
+  color:#555;
+}
+.table.table-sm td,
+.table.table-sm th{
+  padding:.6rem .75rem;
+}
+
+/* Badge de estado (pill) */
+.status-badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:.2rem .7rem;
+  font-size:.75rem;
+  font-weight:600;
+}
+
+/* Ajuste para list-group (tareas) */
+.list-group-item{
+  border:0;
+}
+.list-group-item + .list-group-item{
+  border-top:1px solid rgba(0,0,0,.06);
+}
+
+/* Text muted (si quieres negro como pusiste antes) */
+.text-muted{
+  color:#000000 !important;
+}
+
+/* ===========================
+   GRÁFICOS (canvas)
+   =========================== */
+
+/* Asegura que los canvas se adapten al ancho */
+canvas{
+  width:100% !important;
+}
+
+/* Tamaños específicos por id (como en tu HTML) */
+#ordersChart{
+  width:100% !important;
+  height:280px !important;
+  max-height:280px;
+}
+#productsChart{
+  width:100% !important;
+  height:320px !important;
+  max-height:320px;
+}
+
+/* Responsive */
+@media (max-width: 992px){
+  #ordersChart{ height:250px !important; }
+  #productsChart{ height:280px !important; }
+}
+@media (max-width: 768px){
+  #ordersChart{ height:220px !important; }
+  #productsChart{ height:250px !important; }
+}
+
+/* Hace que el canvas ocupe el espacio restante dentro de la card */
+.card-soft .card-body canvas{
+  flex:1;
+  min-height:0;
+}
